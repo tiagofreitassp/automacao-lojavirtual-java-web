@@ -1,0 +1,26 @@
+=== Automacao Loja Virtual ===
+
+1.Requisitos:
+ .Google Chrome Webdriver versao 79. O driver esta na pasta drivers
+ .Java JDK 8
+ .Intellij Idea ou Eclipse IDE
+ .Dependencias Maven (Ja estao inseridas no arquivo pom.xml pronto para serem baixadas ao importar na IDE
+  com as versoes estaveis).
+
+2.Configuracoes:
+ .O projeto foi criado no MacOS, porem foi testado tambem para executar no Windows. Ja esta configurado para
+  executar no Windows.
+ .Os scripts gherkin estao na pasta features
+ .Classe para executar esta na pasta runner/RunnerTest
+ .Os metodos para criar o webdriver estao na classe DriverWeb na pasta Driver
+
+3.Execucao:
+ .Inserir as massas para teste no arquivo compras.feature na pasta features
+ .Abrir a classe RunnerTest.java no Intellij Idea ou no Eclipse
+
+4.Evidencias:
+ .Apos a execucao as imagens de evidencias sao armazenadas na pasta screenshots.
+
+5.Massas:
+ .Antes de executar nao esqueca de trocar as massas por uma adequada. Faca isso para o CT01, para o CT02 nao ha
+  problema em usar a massa disponivel na feature.
