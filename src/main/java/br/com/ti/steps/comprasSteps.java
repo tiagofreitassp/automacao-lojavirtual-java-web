@@ -2,26 +2,20 @@ package br.com.ti.steps;
 
 import br.com.ti.base.BasePage;
 import br.com.ti.variables.Variables;
+import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.junit.After;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class comprasSteps {
     public Variables v = new Variables();
     public BasePage page = new BasePage();
-
-    public static String nomePasta;
-    public File pastaEvidencias;
-
-    public Boolean isPresent;
-    public WebDriverWait wait;
 
     public String chrome = "chrome";
     public String firefox = "firefox";
@@ -44,9 +38,19 @@ public class comprasSteps {
     public String cpArEmailAddress;
     public String cpArPassword;
 
+    @Before
+    public void setUp() {
+        page.criarDriverWeb(chrome,link);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        page.fecharDriverWeb();
+    }
+
     @Dado("que eu estou na pagina da loja virtual")
     public void queEuEstouNaPaginaDaLojaVirtual() throws InterruptedException {
-        page.criarDriverWeb(chrome,link);
+        //page.criarDriverWeb(chrome,link);
     }
 
     @Quando("eu preencher todos os dados do formulario {string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string}")
@@ -128,7 +132,7 @@ public class comprasSteps {
         page.esperar(1000);
 
         page.gerarEvidenciaNoWord("Realizar cadastro de cliente","CT01","Cadastro de Cliente");
-        page.fecharDriverWeb();
+        //page.fecharDriverWeb();
     }
 
     @Dado("efetuei a autenticacao de usuario com {string} e {string}")
@@ -195,6 +199,6 @@ public class comprasSteps {
         page.esperar(1000);
         page.clicar(By.xpath(v.btnSignOut));
         page.gerarEvidenciaNoWord("Realizar compra de produto","CT02","Compra de produto");
-        page.fecharDriverWeb();
+        //page.fecharDriverWeb();
     }
 }

@@ -1,9 +1,13 @@
 === Automacao Loja Virtual ===
 
+0.Objetivo
+ .Primeiro teste realiza o cadastro de novo usuario.
+ .Segundo teste e realizar uma pesquisa de produto e comprar produto ate o final do fluxo.
+
 1.Requisitos:
  .Google Chrome Webdriver versao 79. O driver esta na pasta drivers
  .Java JDK 8
- .Intellij Idea ou Eclipse IDE
+ .Intellij Idea, Eclipse IDE, Visual Studio Code ou Spring Tools Suite.
  .Dependencias Maven (Ja estao inseridas no arquivo pom.xml pronto para serem baixadas ao importar na IDE
   com as versoes estaveis).
 
