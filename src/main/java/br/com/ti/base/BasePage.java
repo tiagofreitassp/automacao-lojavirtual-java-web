@@ -220,7 +220,7 @@ public class BasePage extends DriverWeb {
             run3.addBreak();
             is.close();
 
-            String documento = pastaEvidencias + "\\" + "ID - " + id + " - " + titulo +".doc";
+            String documento = pastaEvidencias + "\\" + "ID - " + id + " - " + titulo +".docx";
             FileOutputStream fos = new FileOutputStream(documento);
             doc.write(fos);
             fos.close();
