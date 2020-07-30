@@ -1,0 +1,5 @@
+br\com\ti\driver\DriverWeb.class
+br\com\ti\steps\comprasSteps.class
+br\com\ti\runner\RunnerTest.class
+br\com\ti\base\BasePage.class
+br\com\ti\variables\Variables.class
