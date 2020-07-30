@@ -12,8 +12,8 @@
   com as versoes estaveis).
 
 2.Configuracoes:
- .O projeto foi criado para executar no Windows. Mas pode receber adaptacoes para executar no MacOS e Linux caso nao
- execute bem em outras plataformas.
+ .O projeto foi criado para executar no Windows. Mas pode receber adaptacoes para executar no MacOS e Linux
+ caso nao execute bem fora do Windows.
  .Os scripts gherkin estao na pasta features
  .Classe para executar esta na pasta runner/RunnerTest
  .Os metodos para criar o webdriver estao na classe DriverWeb na pasta Driver
@@ -24,6 +24,7 @@
 
 4.Evidencias:
  .Apos a execucao as imagens de evidencias sao armazenadas na pasta evidencias.
+ .Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
 
 5.Massas:
  .Antes de executar nao esqueca de trocar as massas por uma adequada. Faca isso para o CT01, para o CT02 nao ha

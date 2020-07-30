@@ -24,7 +24,7 @@ public class DriverWeb {
     }
 
     public void criarDriverChrome(String url){
-        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(url);
