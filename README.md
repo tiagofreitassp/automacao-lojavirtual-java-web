@@ -14,20 +14,21 @@ Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Se
 * [jUnit ](https://junit.org/junit5/)
 
 ## Dependências:
-* selenium-java
-* junit 4
-* commons-io
-* cucumber-junit
-* cucumber-java
-* jxl
-* poi-ooxml
+* Selenium-java
+* jUnit 4
+* Commons-io
+* Cucumber-junit
+* Cucumber-java
+* Jxl
+* Poi-ooxml
 
 ## Instruções de execução:
 
 ###  - Plataforma
 *Importante: 
-.O projeto foi criado para executar no Windows. Mas pode receber adaptacoes para executar no MacOS e Linux caso nao execute bem fora do Windows.
-.Recomendado utilizar o Intellij Idea, mas pode usar o Eclipse IDE, Visual Studio Code ou Spring Tools Suite.
+O projeto foi criado para executar no Windows. Mas pode receber adaptacoes para executar no MacOS e Linux caso nao execute bem fora do Windows.
+
+Recomendado utilizar o Intellij Idea, mas pode usar o Eclipse IDE, Visual Studio Code ou Spring Tools Suite.
 
 ###  - Fluxo
 *Descricao: Este script ira executar uma compra online, seguindo o fluxo desde a escolha do produto ate a etapa de confirmacao da compra.
@@ -38,9 +39,9 @@ problema em usar a massa disponivel na feature desde que verifique antes se o si
 
 ###  - Evidencias
 *Descricao:
-.Apos a execucao as imagens de evidencias sao armazenadas na pasta evidencias.
-.Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
+Apos a execucao as imagens de evidencias sao armazenadas na pasta evidencias.
+
+Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
 
 ###  - Inicializar a automação
-*Descricao: 
-.Classe para executar esta na pasta runner/RunnerTest
+*Descricao: Classe para executar esta na pasta runner/RunnerTest
