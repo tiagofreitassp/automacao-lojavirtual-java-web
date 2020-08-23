@@ -13,6 +13,7 @@ Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Se
 * [Intellij Idea](https://www.jetbrains.com/pt-br/idea/)
 * [jUnit](https://junit.org/junit5/)
 * [Cucumber](https://cucumber.io)
+* [ItextPDF](https://itextpdf.com/en)
 
 ## Dependências:
 * Selenium-java
