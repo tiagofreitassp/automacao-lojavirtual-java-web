@@ -10,7 +10,7 @@ Funcionalidade: Realizar cadastro e compra com sucesso
 
     Exemplos:
       | email                  | titulo | primeiroNome | ultimoNome | senha     | companhia | endereco             | cidade | cep   | telefone   | celular     | email2               |
-      | teste.catorze@mail.com | mr     | Chapolin     | Colorado   | abc@12345 | Acme Ltd  | Rua Antonio Agu, 123 | Osasco | 10075 | 1145671234 | 11999999999 | teste.alias@mail.com |
+      | teste.email.2@mail.com | mr     | Chapolin     | Colorado   | abc@12345 | Acme Ltd  | Rua Antonio Agu, 123 | Osasco | 10075 | 1145671234 | 11999999999 | teste.alias@mail.com |
 
 
 
@@ -21,5 +21,5 @@ Funcionalidade: Realizar cadastro e compra com sucesso
     Entao a compra e finalizada com sucesso
 
     Exemplos:
-      | email               | senha     |
-      | teste.nove@mail.com | abc@12345 |
+      | email                  | senha     |
+      | teste.email.1@mail.com | abc@12345 |

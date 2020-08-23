@@ -11,7 +11,8 @@ Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Se
 * [Maven dependencias](https://mvnrepository.com)
 * [Selenium Webdriver](https://www.selenium.dev/projects/)
 * [Intellij Idea](https://www.jetbrains.com/pt-br/idea/)
-* [jUnit ](https://junit.org/junit5/)
+* [jUnit](https://junit.org/junit5/)
+* [Cucumber](https://cucumber.io)
 
 ## Dependências:
 * Selenium-java
@@ -19,8 +20,10 @@ Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Se
 * Commons-io
 * Cucumber-junit
 * Cucumber-java
+* Cucumber-picocontainer
 * Jxl
 * Poi-ooxml
+* Itextpdf
 
 ## Instruções de execução:
 
@@ -39,7 +42,7 @@ problema em usar a massa disponivel na feature desde que verifique antes se o si
 
 ###  - Evidencias
 *Descricao:
-Apos a execucao as imagens de evidencias sao armazenadas na pasta evidencias.
+Ha duas classes para gerar evidencias, uma esta na BasePage que cria uma pasta, salva as imagens la dentro e depois gera o documento docx. Ou se preferir tem a classe GeradorPDF que gera das evidencias no formato pdf, aconselho usar ela pois é mais rapido e seguro.
 
 Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
 

@@ -1,6 +1,8 @@
 package br.com.ti.base;
 
 import br.com.ti.driver.DriverWeb;
+import br.com.ti.utils.GeradorPDF;
+import io.cucumber.java.Scenario;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.Document;
@@ -54,16 +56,19 @@ public class BasePage extends DriverWeb {
 
     public void clicarSemEsperar(By by) throws MalformedURLException, InterruptedException {
         esperar(800);
+        selecionarElemento(by);
         driver.findElement(by).click();
     }
 
     public void escrever(By by, String texto) throws MalformedURLException, InterruptedException {
         aguardarElemento(by);
+        selecionarElemento(by);
         driver.findElement(by).sendKeys(texto);
     }
 
     public void clicar(By by) throws MalformedURLException, InterruptedException {
         esperar(1000);
+        selecionarElemento(by);
         driver.findElement(by).click();
     }
 
@@ -73,11 +78,18 @@ public class BasePage extends DriverWeb {
 
     public void validarElementoExibido(By by){
         aguardarElemento(by);
+        selecionarElemento(by);
         driver.findElement(by).isDisplayed();
+    }
+
+    public void MoverParaElemento(By by){
+        WebElement elemento = driver.findElement(by);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
     }
 
     public void validarTexto(By by, String texto) throws MalformedURLException {
         aguardarElemento(by);
+        selecionarElemento(by);
         Assert.assertEquals(texto, obterTexto(by));
     }
 
@@ -132,7 +144,7 @@ public class BasePage extends DriverWeb {
     public void scrollDown() throws InterruptedException {
         Thread.sleep(1500);
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
-        jse2.executeScript("window.scrollBy(0,180)");
+        jse2.executeScript("window.scrollBy(0,200)");
         Thread.sleep(1500);
     }
 
@@ -195,11 +207,8 @@ public class BasePage extends DriverWeb {
 
     public void gerarScreenshot(String nomeImagem) throws InterruptedException {
         try {
-
             TakesScreenshot ts = (TakesScreenshot)driver;
-
             File source = ts.getScreenshotAs(OutputType.FILE);
-
             org.apache.commons.io.FileUtils.copyFile(source, new File(pastaEvidencias+"\\"+nomeImagem+".png"));
 
             System.out.println("Screenshot capturado de "+nomeImagem+"!");

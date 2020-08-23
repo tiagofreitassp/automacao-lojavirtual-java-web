@@ -38,7 +38,7 @@ public class Variables {
     public String cpArPassword = "passwd";
     public String btnArSignin = "SubmitLogin";
     public String lbWomen = "//a[@class='sf-with-ul'][contains(text(),'Women')]";
-    public String lbProduto1 = "//li[@class='ajax_block_product col-xs-12 col-sm-6 col-md-4 first-in-line first-item-of-tablet-line first-item-of-mobile-line']//img[@class='replace-2x img-responsive']";
+    public String lbProduto1 = "//img[@src='http://automationpractice.com/img/p/1/1-home_default.jpg']";
     public String txtFadedShortSleeveTshirts = "//h1[contains(text(),'Faded Short Sleeve T-shirts')]";
     public String btnAddToCart = "Submit";
     public String txtProductSuccessfullyAddedToYourShoppingCart = "//div[@class='layer_cart_product col-xs-12 col-md-6']//h2[1]";
