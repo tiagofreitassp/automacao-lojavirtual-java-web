@@ -50,5 +50,7 @@ Para visualizar as evidencias no documento pode usar o MS Office Word ou o Libre
 ###  - Inicializar a automação
 *Descricao: 
 Classe para executar esta na pasta runner/RunnerTest.
-Note-se com a versao dos webdrivers na pasta driver.
-O projeto e webdriver estao setados para o Chrome, para os outros navegadores nao esqueca de baixar os drivers devidos.
+
+Note-se com a versao do webdriver na pasta driver de acordo com a versao do navegador em sua maquina.
+
+O webdriver esta setado para o Chrome, para os outros navegadores nao esqueca de baixar os drivers devidos.
