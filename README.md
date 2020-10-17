@@ -48,4 +48,7 @@ Ha duas classes para gerar evidencias, uma esta na BasePage que cria uma pasta, 
 Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
 
 ###  - Inicializar a automação
-*Descricao: Classe para executar esta na pasta runner/RunnerTest
+*Descricao: 
+Classe para executar esta na pasta runner/RunnerTest.
+Note-se com a versao dos webdrivers na pasta driver.
+O projeto e webdriver estao setados para o Chrome, para os outros navegadores nao esqueca de baixar os drivers devidos.

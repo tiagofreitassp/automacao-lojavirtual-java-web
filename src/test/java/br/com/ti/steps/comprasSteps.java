@@ -25,6 +25,7 @@ public class comprasSteps extends DriverWeb {
     public String firefox = "firefox";
     public String ie = "ie";
     public String edge = "edge";
+    public String safari = "safari";
     public String link = "http://automationpractice.com/index.php?";
 
     public String email;
@@ -45,12 +46,14 @@ public class comprasSteps extends DriverWeb {
     private Scenario cenario;
     private String nomeDoCenario;
 
+    public String navegador = chrome;
+
     @Before("@LojaVirtual")
     public void setUp(Scenario cenario) throws Exception {
         this.cenario = cenario;
         nomeDoCenario = this.cenario.getName();
         geradorPDF = new GeradorPDF(this.cenario, this.cenario.getName());
-        page.criarDriverWeb(chrome,link);
+        page.criarDriverWeb(navegador,link);
     }
 
     @Dado("eu preencher todos os dados do formulario {string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string}")

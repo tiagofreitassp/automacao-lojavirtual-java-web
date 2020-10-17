@@ -4,6 +4,7 @@ import br.com.ti.utils.InfraUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -27,6 +28,8 @@ public class DriverWeb {
             criarDriverIE(url);
         }else if (browser.equalsIgnoreCase("edge")){
             criarDriverEdge(url);
+        }else if (browser.equalsIgnoreCase("safari")){
+            criarDriverSafari(url);
         }else{
             criarDriverChrome(url);
         }
@@ -36,10 +39,11 @@ public class DriverWeb {
         String os = InfraUtils.getOsName();
         System.out.println("Sistema Operacional: "+os);
 
-        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix")) {
+        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
+                os.equalsIgnoreCase("Mac OS X")) {
             System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
         }else if (os.equalsIgnoreCase("Windows")){
-            System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
         }
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -50,10 +54,11 @@ public class DriverWeb {
         String os = InfraUtils.getOsName();
         System.out.println("Sistema Operacional: "+os);
 
-        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix")) {
+        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
+                os.equalsIgnoreCase("Mac OS X")) {
             System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
-        }else if (os.equalsIgnoreCase("Windows")){
-            System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+        }else {
+            System.setProperty("webdriver.gecko.driver", ".//drivers//geckodriver.exe");
         }
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -64,10 +69,9 @@ public class DriverWeb {
         String os = InfraUtils.getOsName();
         System.out.println("Sistema Operacional: "+os);
 
-        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix")) {
+        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
+                os.equalsIgnoreCase("Mac OS X")) {
             throw new Exception("Não há webdriver do Internet Explorar para SO diferente do Windows!");
-        }else if (os.equalsIgnoreCase("Windows")){
-            System.setProperty("webdriver.ie.driver", ".//drivers//IEDriverServer.exe");
         }else {
             System.setProperty("webdriver.ie.driver", ".//drivers//IEDriverServer.exe");
         }
@@ -80,23 +84,33 @@ public class DriverWeb {
         String os = InfraUtils.getOsName();
         System.out.println("Sistema Operacional: "+os);
 
-        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix")) {
-            System.setProperty("webdriver.edge.driver", ".//drivers//MicrosoftWebDriver");
-        }else if (os.equalsIgnoreCase("Windows")){
-            System.setProperty("webdriver.edge.driver", ".//drivers//MicrosoftWebDriver.exe");
+        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
+                os.equalsIgnoreCase("Mac OS X")) {
+            System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver");
         }else {
-            System.setProperty("webdriver.edge.driver", ".//drivers//MicrosoftWebDriver.exe");
+            System.setProperty("webdriver.edge.driver", ".//drivers//msedgedriver.exe");
         }
-        driver = new EdgeDriver();
+
+        //O Driver abaixo e do MS Edge Chromium e nao da versao anterior dele
+        EdgeOptions edgeOptions = new EdgeOptions();
+        driver = new EdgeDriver(edgeOptions);
         driver.manage().window().maximize();
         driver.get(url);
     }
 
-    public void criarDriverSafari(String url){
-        SafariOptions options = new SafariOptions();
-        driver = new SafariDriver(options);
-        driver.manage().window().maximize();
-        driver.get(url);
+    public void criarDriverSafari(String url) throws Exception {
+        String os = InfraUtils.getOsName();
+        System.out.println("Sistema Operacional: "+os);
+
+        if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
+                os.equalsIgnoreCase("Mac OS X")) {
+            SafariOptions options = new SafariOptions();
+            driver = new SafariDriver(options);
+            driver.manage().window().maximize();
+            driver.get(url);
+        }else {
+            throw new Exception("Não há webdriver do Safari para SO diferente do Mac OS!");
+        }
     }
 
     public void fecharDriverWeb(){
