@@ -43,7 +43,7 @@ problema em usar a massa disponivel na feature desde que verifique antes se o si
 
 ###  - Evidencias
 *Descricao:
-Ha duas classes para gerar evidencias, uma esta na BasePage que cria uma pasta, salva as imagens la dentro e depois gera o documento docx. Ou se preferir tem a classe GeradorPDF que gera das evidencias no formato pdf, aconselho usar ela pois é mais rapido e seguro.
+Ha duas classes para gerar evidencias, uma esta na BasePage que cria uma pasta, salva as imagens la dentro e depois gera o documento docx. Ou se preferir tem a classe GeradorPDF que gera as evidencias no formato pdf, aconselho usa-la pois é mais rapido e seguro.
 
 Para visualizar as evidencias no documento pode usar o MS Office Word ou o LibreOffice
 
