@@ -13,14 +13,14 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 
 public class GeradorPDF{
-    private BasePage page = new BasePage();
-
     private Document document;
     private int contador;
     private Scenario cenario;
     private String arqEvidencia;
+    private WebDriver driver;
 
-    public GeradorPDF(Scenario cenario, String nomeTeste){
+    public GeradorPDF(WebDriver driver,Scenario cenario, String nomeTeste){
+        this.driver=driver;
         this.document = new Document();
         this.cenario = cenario;
         contador = 0;
@@ -65,8 +65,8 @@ public class GeradorPDF{
         }
     }
 
-    private void insertPrint(WebDriver driver) {
-        TakesScreenshot ts = (TakesScreenshot) driver;
+    private void insertPrint() {
+        TakesScreenshot ts = (TakesScreenshot) this.driver;
         byte[] imagem = ts.getScreenshotAs(OutputType.BYTES);
 
         try {
@@ -78,13 +78,13 @@ public class GeradorPDF{
         }
     }
 
-    public void print(String passo,WebDriver driver) {
+    public void print(String passo) {
         if (contador == 2) {
             document.newPage();
             contador = 0;
         }
         addText(passo);
-        insertPrint(driver);
+        insertPrint();
         contador++;
     }
 
@@ -115,11 +115,11 @@ public class GeradorPDF{
         addFormatedText(text, FontFactory.HELVETICA_BOLD, 15f, 1, BaseColor.RED);
     }
 
-    public void addException(Exception ex, String passo, WebDriver driver) {
+    public void addException(Exception ex, String passo) {
         try {
             addFormatedText("Foi lançada uma exceção durante a execução do passo: " + passo, FontFactory.COURIER_BOLD, 16f,
                     1, BaseColor.RED);
-            print("---------ScreenShoot do passo---------",driver);
+            print("---------ScreenShoot do passo---------");
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             ex.printStackTrace(pw);
@@ -154,7 +154,7 @@ public class GeradorPDF{
         return new File(arqEvidencia).renameTo(new File(novoNome));
     }
 
-    public void evidenciaElemento(String passo, WebDriver driver) {
-        print(passo,driver);
+    public void evidenciaElemento(String passo) {
+        print(passo);
     }
 }
