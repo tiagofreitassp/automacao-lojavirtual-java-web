@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         tags = {"@ct02"},
 
         //Executa no jUnit exibindo no console os mesmos resultados do cucumber
-        plugin = "pretty",
+        plugin = {"pretty", "html:evidencias/html/evidence-html"},
 
         //Ele nao tenta colocar caracteres coloridos e especiais
         monochrome = true,

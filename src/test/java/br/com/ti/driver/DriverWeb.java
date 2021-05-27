@@ -1,6 +1,7 @@
 package br.com.ti.driver;
 
 import br.com.ti.utils.InfraUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -41,10 +42,11 @@ public class DriverWeb {
 
         if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
                 os.equalsIgnoreCase("Mac OS X")) {
-            System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-        }else if (os.equalsIgnoreCase("Windows")){
-            System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+        }else if (os.equalsIgnoreCase("Windows") || os.equalsIgnoreCase("Windows 10")){
+            //System.setProperty("webdriver.chrome.driver", ".//drivers//chromedriver.exe");
         }
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(url);
@@ -56,10 +58,11 @@ public class DriverWeb {
 
         if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
                 os.equalsIgnoreCase("Mac OS X")) {
-            System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
+            //System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
         }else {
-            System.setProperty("webdriver.gecko.driver", ".//drivers//geckodriver.exe");
+            //System.setProperty("webdriver.gecko.driver", ".//drivers//geckodriver.exe");
         }
+        WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get(url);
@@ -71,10 +74,11 @@ public class DriverWeb {
 
         if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
                 os.equalsIgnoreCase("Mac OS X")) {
-            throw new Exception("Não há webdriver do Internet Explorar para SO diferente do Windows!");
+            throw new Exception("Não há webdriver do Internet Explorar para SO diferente do MS. Windows!");
         }else {
-            System.setProperty("webdriver.ie.driver", ".//drivers//IEDriverServer.exe");
+            //System.setProperty("webdriver.ie.driver", ".//drivers//IEDriverServer.exe");
         }
+        WebDriverManager.iedriver().setup();
         driver = new InternetExplorerDriver();
         driver.manage().window().maximize();
         driver.get(url);
@@ -86,10 +90,11 @@ public class DriverWeb {
 
         if (os.equalsIgnoreCase("Mac") || os.equalsIgnoreCase("Unix") ||
                 os.equalsIgnoreCase("Mac OS X")) {
-            System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver");
+            //System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver");
         }else {
-            System.setProperty("webdriver.edge.driver", ".//drivers//msedgedriver.exe");
+           // System.setProperty("webdriver.edge.driver", ".//drivers//msedgedriver.exe");
         }
+        WebDriverManager.edgedriver().setup();
 
         //O Driver abaixo e do MS Edge Chromium e nao da versao anterior dele
         EdgeOptions edgeOptions = new EdgeOptions();
