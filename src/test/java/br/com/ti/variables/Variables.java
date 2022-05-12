@@ -41,7 +41,7 @@ public class Variables {
     public String lbProduto1 = "//img[@src='http://automationpractice.com/img/p/1/1-home_default.jpg']";
     public String txtFadedShortSleeveTshirts = "//h1[contains(text(),'Faded Short Sleeve T-shirts')]";
     public String btnAddToCart = "Submit";
-    public String txtProductSuccessfullyAddedToYourShoppingCart = "//div[@class='layer_cart_product col-xs-12 col-md-6']//h2[1]";
+    public String txtProductSuccessfullyAddedToYourShoppingCart = "//h2[contains(text(),'Product successfully added to your shopping cart')]";
     public String txtProductSuccessfullyAddedToYourShoppingCart2 = "//td[@class='cart_description']//a[contains(text(),'Faded Short Sleeve T-shirts')]";
     public String btnProceedToCheckout = "//span[contains(text(),'Proceed to checkout')]";
     public String lblShoppingCartSummary = "cart_title";
@@ -60,6 +60,12 @@ public class Variables {
     public String btnIconfirmMyOrder = "//button[@class='button btn btn-default button-medium']";
     public String txtOrderConfirmation = "//h1[@class='page-heading']";
     public String txtYourOrderOnMyStoreIsComplete = "//strong[contains(text(),'Your order on My Store is complete.')]";
+
+    public String lblProductSuccessfullyAddedToYourShoppingCart_TotalProducts = "//strong[contains(text(),'Total products')]";
+
+    public String lblProductSuccessfullyAddedToYourShoppingCart_TotalShipping = "//strong[contains(text(),'Total shipping')]";
+
+    public String lblProductSuccessfullyAddedToYourShoppingCart_Total = "//strong[contains(text(),'Total')]";
     public String btnSignOut = "//a[@class='logout']";
 
     public String iFrame_FadedShortSleeveTshirts = "//iframe[@class='fancybox-iframe']";

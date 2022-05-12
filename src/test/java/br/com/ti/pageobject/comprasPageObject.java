@@ -166,8 +166,11 @@ public class comprasPageObject {
         geradorPDF.evidenciaElemento("Clicar em Add to cart");
         //page.gerarScreenshot("Ev3");
         page.clicar(By.name(v.btnAddToCart));
+        geradorPDF.evidenciaElemento("Clicado no botao Add to cart");
+        page.esperar(9000);
 
-        page.validarElementoExibido(By.xpath(v.txtProductSuccessfullyAddedToYourShoppingCart));
+        page.aguardarElemento(By.xpath(v.btnProceedToCheckout));
+        //page.validarElementoExibido(By.xpath(v.txtProductSuccessfullyAddedToYourShoppingCart));
         geradorPDF.evidenciaElemento("Clicar em Proceed to checkout");
         //page.gerarScreenshot("Ev4");
         page.clicar(By.xpath(v.btnProceedToCheckout));

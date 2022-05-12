@@ -60,7 +60,7 @@ public class BasePage {
     }
 
     public void clicarSemEsperar(By by) throws MalformedURLException, InterruptedException {
-        esperar(800);
+        aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).click();
     }
@@ -72,7 +72,7 @@ public class BasePage {
     }
 
     public void clicar(By by) throws MalformedURLException, InterruptedException {
-        esperar(1000);
+        aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).click();
     }
