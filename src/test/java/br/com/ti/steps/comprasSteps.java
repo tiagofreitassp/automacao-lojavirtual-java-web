@@ -11,7 +11,6 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.*;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

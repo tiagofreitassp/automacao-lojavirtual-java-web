@@ -1,6 +1,6 @@
 #language: pt
 
-  @LojaVirtual
+@LojaVirtual
 Funcionalidade: Realizar cadastro e compra com sucesso
 
   @ct01

@@ -114,7 +114,7 @@ public class DriverWeb {
             driver.manage().window().maximize();
             driver.get(url);
         }else {
-            throw new Exception("Não há webdriver do Safari para SO diferente do Mac OS!");
+            throw new Exception("Não há webdriver do Safari para SO diferente do MacOS!");
         }
     }
 

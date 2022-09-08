@@ -159,7 +159,7 @@ public class comprasPageObject {
 
         page.clicar(By.xpath(v.lbProduto1));
 
-        page.esperar(3000);
+        page.esperar(4000);
         page.waitFrameAndSwitch(By.xpath(v.iFrame_FadedShortSleeveTshirts));
 
         page.validarElementoExibido(By.xpath(v.txtFadedShortSleeveTshirts));

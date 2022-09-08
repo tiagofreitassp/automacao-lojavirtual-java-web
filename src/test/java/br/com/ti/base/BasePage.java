@@ -1,8 +1,5 @@
 package br.com.ti.base;
 
-import br.com.ti.driver.DriverWeb;
-import br.com.ti.utils.GeradorPDF;
-import io.cucumber.java.Scenario;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.Document;
@@ -20,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -119,8 +117,7 @@ public class BasePage {
     }
 
     public void aguardarElemento(By by) {
-        wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     protected WebElement waitAndFindElement(By by) {
