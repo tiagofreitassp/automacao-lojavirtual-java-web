@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/br/com/ti/features/compras.feature",
 
         glue = "br.com.ti.steps",
-        tags = {"@ct02"},
+        tags = "@ct02",
 
         //Executa no jUnit exibindo no console os mesmos resultados do cucumber
         plugin = {"pretty", "html:evidencias/html/evidence-html"},
@@ -22,9 +22,9 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
 
         //dryRun = true Valida se o mapeamento esta correto e nao executa o teste
-        dryRun = false,
+        dryRun = false
 
-        strict = true
+        //strict = true
 )
 public class RunnerTest {
 }
