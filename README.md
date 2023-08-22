@@ -35,6 +35,7 @@ O projeto foi criado para executar no Windows. Mas pode receber adaptacoes para 
 
 Recomendado utilizar o Intellij Idea, mas pode usar o Eclipse IDE, Visual Studio Code ou Spring Tools Suite.
 
+Utilize a versão 2 do Appim, pois as anteriores foram depreciadas e não possuem suporte do Desenvolvedor.
 ###  - Fluxo
 *Descricao: Este script ira executar uma compra online, seguindo o fluxo desde a escolha do produto ate a etapa de confirmacao da compra.
 
