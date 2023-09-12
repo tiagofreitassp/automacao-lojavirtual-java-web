@@ -76,32 +76,25 @@ public class comprasPageObject {
         page.escrever(By.id(v.cpFirstName),primeiroNome);
         page.escrever(By.id(v.cpLastName),ultimoNome);
         page.escrever(By.id(v.cpPassword),senha);
-        page.esperar(1000);
-        page.clicar(By.xpath(v.slDia));
-        page.esperar(1000);
-        page.clicar(By.xpath(v.lbDia));
-        page.esperar(1000);
-        page.clicar(By.xpath(v.slMes));
-        page.esperar(1000);
-        page.clicar(By.xpath(v.lbMes));
-        page.esperar(1000);
-        page.clicar(By.xpath(v.slAno));
-        page.esperar(1000);
-        page.clicar(By.xpath(v.lbAno));
+
+        page.scrollDown();
+
+        page.clicarSemEsperar(By.xpath(v.slDia));
+        page.clicarSemEsperar(By.xpath(v.lbDia));
+        page.clicarSemEsperar(By.xpath(v.slMes));
+        page.clicarSemEsperar(By.xpath(v.lbMes));
+        page.clicarSemEsperar(By.xpath(v.slAno));
+        page.clicarSemEsperar(By.xpath(v.lbAno));
 
         geradorPDF.evidenciaElemento("Etapa 1 cadastro");
         //page.gerarScreenshot("Ev 1");
 
-        page.scrollDown();
+        page.clicar(By.xpath(v.btnRegister));
 
-        page.escrever(By.id(v.cpCompany),companhia);
-        page.escrever(By.id(v.cpAddress),endereco);
-        page.escrever(By.id(v.cpCity),cidade);
-        page.clicar(By.xpath(v.slState));
-        page.clicar(By.xpath(v.lbState));
-
-        geradorPDF.evidenciaElemento("Etapa 2 cadastro");
-        //page.gerarScreenshot("Ev 2");
+        page.aguardarElemento(By.xpath("//p[contains(text(),'Your account has been created.')]"));
+        clicarEmMyAddresses();
+        clicarEmAddaNewAddresses();
+        preencherAddresses();
 
         page.scrollDown();
 
@@ -112,9 +105,8 @@ public class comprasPageObject {
 
         geradorPDF.evidenciaElemento("Etapa 3 cadastro");
         //page.gerarScreenshot("Ev 3");
-        page.esperar(1000);
 
-        page.clicar(By.xpath(v.btnRegister));
+        page.clicar(By.xpath("//button[@id='submitAddress']"));
     }
 
     public void oCadastroDoNovoClienteECriado() throws IOException, InterruptedException, InvalidFormatException {
@@ -124,8 +116,6 @@ public class comprasPageObject {
 
         geradorPDF.evidenciaElemento("Fim do cadastro");
         //page.gerarScreenshot("Ev 4");
-        page.esperar(1000);
-
         //page.gerarEvidenciaNoWord(nomeDoCenario,"CT01","Cadastro de Cliente");
     }
 
@@ -220,5 +210,24 @@ public class comprasPageObject {
         page.esperar(1000);
         page.clicar(By.xpath(v.btnSignOut));
         //page.gerarEvidenciaNoWord(nomeDoCenario,"CT02","Compra de produto");
+    }
+
+    public void clicarEmMyAddresses() throws MalformedURLException, InterruptedException {
+        page.clicar(By.xpath("//span[contains(text(),'My addresses')]"));
+    }
+
+    public void clicarEmAddaNewAddresses() throws MalformedURLException, InterruptedException {
+        page.clicar(By.xpath("//*[@id=\"center_column\"]/div/a"));
+    }
+
+    public void preencherAddresses() throws MalformedURLException, InterruptedException {
+        page.escrever(By.id(v.cpCompany),companhia);
+        page.escrever(By.id(v.cpAddress),endereco);
+        page.escrever(By.id(v.cpCity),cidade);
+        page.clicar(By.xpath(v.slState));
+        page.clicar(By.xpath(v.lbState));
+
+        geradorPDF.evidenciaElemento("Etapa 2 cadastro");
+        //page.gerarScreenshot("Ev 2");
     }
 }

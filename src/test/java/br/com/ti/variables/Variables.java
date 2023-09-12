@@ -30,7 +30,7 @@ public class Variables {
     public String cpHomePhone = "phone";
     public String cpMobilePhone = "phone_mobile";
     public String cpAlias = "alias";
-    public String btnRegister = "//span[contains(text(),'Register')]";
+    public String btnRegister = "//button[@id='submitAccount']";
 
     //Welcome to your account. Here you can manage all of your personal information and orders.
     public String txtBoasVindas = "//p[@class='info-account']";

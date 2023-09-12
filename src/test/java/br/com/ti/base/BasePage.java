@@ -59,7 +59,6 @@ public class BasePage {
 
     public void clicarSemEsperar(By by) throws MalformedURLException, InterruptedException {
         aguardarElemento(by);
-        selecionarElemento(by);
         this.driver.findElement(by).click();
     }
 
@@ -117,7 +116,7 @@ public class BasePage {
     }
 
     public void aguardarElemento(By by) throws InterruptedException {
-        esperar(1000);
+        esperar(1500);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
@@ -137,13 +136,17 @@ public class BasePage {
     }
 
     public void scrollUp() throws InterruptedException {
+        esperar(1000);
         JavascriptExecutor jse1 = (JavascriptExecutor)driver;
         jse1.executeScript("window.scrollBy(0,-200)");
+        esperar(1000);
     }
 
     public void scrollDown() throws InterruptedException {
+        esperar(1000);
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,200)");
+        esperar(1000);
     }
 
     public void scroll(long t) throws InterruptedException {
