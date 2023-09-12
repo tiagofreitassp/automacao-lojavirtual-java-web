@@ -116,7 +116,7 @@ public class BasePage {
     }
 
     public void aguardarElemento(By by) throws InterruptedException {
-        esperar(1500);
+        esperar(1000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 

@@ -110,9 +110,7 @@ public class comprasPageObject {
     }
 
     public void oCadastroDoNovoClienteECriado() throws IOException, InterruptedException, InvalidFormatException {
-        page.aguardarElemento(By.xpath(v.txtBoasVindas));
-
-        page.validarTexto(By.xpath(v.txtBoasVindas),"Welcome to your account. Here you can manage all of your personal information and orders.");
+        page.validarElementoExibido(By.xpath("//h1[contains(text(),'My addresses')]"));
 
         geradorPDF.evidenciaElemento("Fim do cadastro");
         //page.gerarScreenshot("Ev 4");
