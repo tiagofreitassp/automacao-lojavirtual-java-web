@@ -39,7 +39,7 @@ public class Variables {
     public String cpArPassword = "passwd";
     public String btnArSignin = "SubmitLogin";
     public String lbWomen = "//a[@class='sf-with-ul'][contains(text(),'Women')]";
-    public String lbProduto1 = "//img[@src='http://automationpractice.com/img/p/1/1-home_default.jpg']";
+    public String lbProduto1 = "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/img[1]\n";
     public String txtFadedShortSleeveTshirts = "//h1[contains(text(),'Faded Short Sleeve T-shirts')]";
     public String btnAddToCart = "Submit";
     public String txtProductSuccessfullyAddedToYourShoppingCart = "//h2[contains(text(),'Product successfully added to your shopping cart')]";

@@ -84,7 +84,8 @@ public class BasePage {
         this.driver.findElement(by).isDisplayed();
     }
 
-    public void MoverParaElemento(By by){
+    public void MoverParaElemento(By by) throws InterruptedException {
+        aguardarElemento(by);
         WebElement elemento = this.driver.findElement(by);
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
     }

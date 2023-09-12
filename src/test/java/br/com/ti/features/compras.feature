@@ -21,4 +21,4 @@ Funcionalidade: Realizar cadastro e compra com sucesso
 
     Exemplos:
       | email                  | senha     |
-      | teste.email.3@mail.com | abc@12345 |
+      | teste.email.4@mail.com | abc@12345 |
