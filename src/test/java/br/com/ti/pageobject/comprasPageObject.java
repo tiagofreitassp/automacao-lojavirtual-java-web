@@ -63,7 +63,7 @@ public class comprasPageObject {
         page.escrever(By.id(v.cpEmailAddress),email);
         page.clicar(By.xpath(v.btnCreateAnAccount));
 
-        page.aguardarElemento(By.id(v.rdTitleMrs));
+        page.aguardarElemento(By.id(v.lblTitle));
 
         if(titulo.equalsIgnoreCase("mr")){
             page.clicar(By.id(v.rdTitleMr));

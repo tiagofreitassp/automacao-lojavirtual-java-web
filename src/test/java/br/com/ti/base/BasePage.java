@@ -34,7 +34,7 @@ public class BasePage {
     }
 
     public void clicarRadioButton(int posicao) throws InterruptedException {
-        esperar(800);
+        esperar(1000);
         //Monta uma lista com todos os elementos de nome radio
         List<WebElement> radio = this.driver.findElements(By.name("radio"));
         //Pega a posicao 2 da lista (Equivalente a palavra Boa) e clicar nela
@@ -42,7 +42,7 @@ public class BasePage {
     }
 
     public void clicarCheckBox(int posicao) throws InterruptedException {
-        esperar(800);
+        esperar(1000);
         //Monta uma lista com todos os elementos de nome checkbox
         List<WebElement> checkbox = this.driver.findElements(By.cssSelector("input[type='checkbox']"));
         //Pega a posicao 2 da lista (Equivalente a palavra Boa) e clicar nela
@@ -50,7 +50,7 @@ public class BasePage {
     }
 
     public void clicarViewBox(int posicao, By by) throws InterruptedException {
-        esperar(800);
+        esperar(1000);
         //Monta uma lista com todos os elementos de nome svg
         List<WebElement> svg = this.driver.findElements(by);
         //Pega a posicao 2 da lista (Equivalente a palavra Boa) e clicar nela
@@ -79,7 +79,7 @@ public class BasePage {
         Thread.sleep(tempo);
     }
 
-    public void validarElementoExibido(By by){
+    public void validarElementoExibido(By by) throws InterruptedException {
         aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).isDisplayed();
@@ -90,7 +90,7 @@ public class BasePage {
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
     }
 
-    public void validarTexto(By by, String texto) throws MalformedURLException {
+    public void validarTexto(By by, String texto) throws MalformedURLException, InterruptedException {
         aguardarElemento(by);
         selecionarElemento(by);
         Assert.assertEquals(texto, obterTexto(by));
@@ -100,23 +100,24 @@ public class BasePage {
         wait.until(ExpectedConditions.jsReturnsValue("return document.readyState=='complete'"));
     }
 
-    public WebDriver waitFrameAndSwitch(By frame) {
+    public WebDriver waitFrameAndSwitch(By frame) throws InterruptedException {
         aguardarElemento(frame);
         return wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
     }
 
-    public void switchToFrame(By by){
+    public void switchToFrame(By by) throws InterruptedException {
         aguardarElemento(by);
         WebElement el = this.driver.findElement(by);
         this.driver.switchTo().frame(el);
     }
 
-    public String obterTexto(By by) throws MalformedURLException {
+    public String obterTexto(By by) throws MalformedURLException, InterruptedException {
         aguardarElemento(by);
         return this.driver.findElement(by).getText();
     }
 
-    public void aguardarElemento(By by) {
+    public void aguardarElemento(By by) throws InterruptedException {
+        esperar(1000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
@@ -128,7 +129,6 @@ public class BasePage {
         aguardarElemento(by);
         driver.findElement(by).sendKeys(Keys.CONTROL+"a");
         driver.findElement(by).sendKeys(Keys.DELETE);
-        esperar(1000);
     }
 
     public Object executarJS(String cmd, Object... param) {
@@ -137,24 +137,18 @@ public class BasePage {
     }
 
     public void scrollUp() throws InterruptedException {
-        Thread.sleep(1500);
         JavascriptExecutor jse1 = (JavascriptExecutor)driver;
         jse1.executeScript("window.scrollBy(0,-200)");
-        Thread.sleep(1500);
     }
 
     public void scrollDown() throws InterruptedException {
-        Thread.sleep(1500);
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,200)");
-        Thread.sleep(1500);
     }
 
     public void scroll(long t) throws InterruptedException {
-        Thread.sleep(1500);
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,"+t+")");
-        Thread.sleep(1500);
     }
 
     public void scrollDownClick(By by) throws MalformedURLException, InterruptedException {
@@ -217,7 +211,7 @@ public class BasePage {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        Thread.sleep(1000);
+        esperar(1000);
     }
 
     public void gerarEvidenciaNoWord(String cenario, String id, String titulo) throws IOException, InvalidFormatException, IOException {

@@ -5,7 +5,7 @@ public class Variables {
 
     public String btnSignIn = "//a[@class='login']";
     public String cpEmailAddress = "email_create";
-    public String btnCreateAnAccount = "//form[@id='create-account_form']//span[1]";
+    public String btnCreateAnAccount = "//button[@id='SubmitCreate']";
     public String rdTitleMr = "id_gender1";
     public String rdTitleMrs = "id_gender2";
     public String cpFirstName = "customer_firstname";
@@ -18,6 +18,7 @@ public class Variables {
     public String lbMes = "//option[contains(text(),'February')]";
     public String slAno = "//select[@id='years']";
     public String lbAno = "//option[contains(text(),'2000')]";
+    public String lblTitle = "//label[contains(text(),'Title')]";
     public String cpYaFirstName = "firstname";
     public String cpYaLastName = "lastname";
     public String cpCompany = "company";
