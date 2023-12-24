@@ -42,9 +42,9 @@ public class Variables {
     public String lbProduto1 = "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]/img[1]\n";
     public String txtFadedShortSleeveTshirts = "//h1[contains(text(),'Faded Short Sleeve T-shirts')]";
     public String btnAddToCart = "Submit";
-    public String txtProductSuccessfullyAddedToYourShoppingCart = "//h2[contains(text(),'Product successfully added to your shopping cart')]";
+    public String txtProductSuccessfullyAddedToYourShoppingCart = "//*[contains(text(),'Product successfully added to your shopping cart')]";
     public String txtProductSuccessfullyAddedToYourShoppingCart2 = "//td[@class='cart_description']//a[contains(text(),'Faded Short Sleeve T-shirts')]";
-    public String btnProceedToCheckout = "//span[contains(text(),'Proceed to checkout')]";
+    public String btnProceedToCheckout = "//a[@title='Proceed to checkout']";
     public String lblShoppingCartSummary = "cart_title";
     public String btnSCSProceedToCheckout = "//a[@class='button btn btn-default standard-checkout button-medium']";
     public String btnAdProceedToCheckout = "processAddress";

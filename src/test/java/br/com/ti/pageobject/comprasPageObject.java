@@ -140,7 +140,7 @@ public class comprasPageObject {
 
     public void escolharUmProdutoEConcluirACompra() throws MalformedURLException, InterruptedException {
         page.clicar(By.xpath(v.lbWomen));
-        page.MoverParaElemento(By.xpath(v.lbProduto1));
+        page.moverParaElemento(By.xpath(v.lbProduto1));
 
         geradorPDF.evidenciaElemento("Escolher produto");
         //page.gerarScreenshot("Ev2");

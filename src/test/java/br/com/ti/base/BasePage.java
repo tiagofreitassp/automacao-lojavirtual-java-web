@@ -34,7 +34,7 @@ public class BasePage {
     }
 
     public void clicarRadioButton(int posicao) throws InterruptedException {
-        esperar(1000);
+        esperar(1600);
         //Monta uma lista com todos os elementos de nome radio
         List<WebElement> radio = this.driver.findElements(By.name("radio"));
         //Pega a posicao 2 da lista (Equivalente a palavra Boa) e clicar nela
@@ -42,7 +42,7 @@ public class BasePage {
     }
 
     public void clicarCheckBox(int posicao) throws InterruptedException {
-        esperar(1000);
+        esperar(1600);
         //Monta uma lista com todos os elementos de nome checkbox
         List<WebElement> checkbox = this.driver.findElements(By.cssSelector("input[type='checkbox']"));
         //Pega a posicao 2 da lista (Equivalente a palavra Boa) e clicar nela
@@ -84,7 +84,7 @@ public class BasePage {
         this.driver.findElement(by).isDisplayed();
     }
 
-    public void MoverParaElemento(By by) throws InterruptedException {
+    public void moverParaElemento(By by) throws InterruptedException {
         aguardarElemento(by);
         WebElement elemento = this.driver.findElement(by);
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
@@ -111,13 +111,18 @@ public class BasePage {
         this.driver.switchTo().frame(el);
     }
 
+    public void switchToDefault() throws InterruptedException {
+        this.driver.switchTo().defaultContent();
+        this.esperar(2000);
+    }
+
     public String obterTexto(By by) throws MalformedURLException, InterruptedException {
         aguardarElemento(by);
         return this.driver.findElement(by).getText();
     }
 
     public void aguardarElemento(By by) throws InterruptedException {
-        esperar(1000);
+        esperar(2000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
