@@ -22,9 +22,7 @@ public class comprasSteps extends DriverWeb {
 
     public String chrome = "chrome";
     public String firefox = "firefox";
-    public String ie = "ie";
     public String edge = "edge";
-    public String safari = "safari";
     public String link = "http://www.automationpractice.pl/index.php";
 
     public String email;

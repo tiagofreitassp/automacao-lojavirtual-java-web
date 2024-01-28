@@ -155,9 +155,8 @@ public class comprasPageObject {
         //page.gerarScreenshot("Ev3");
         page.clicar(By.name(v.btnAddToCart));
         geradorPDF.evidenciaElemento("Clicado no botao Add to cart");
-        page.esperar(9000);
+        page.esperar(5000);
 
-        page.aguardarElemento(By.xpath(v.btnProceedToCheckout));
         //page.validarElementoExibido(By.xpath(v.txtProductSuccessfullyAddedToYourShoppingCart));
         geradorPDF.evidenciaElemento("Clicar em Proceed to checkout");
         //page.gerarScreenshot("Ev4");

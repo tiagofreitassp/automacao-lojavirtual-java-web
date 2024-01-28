@@ -25,12 +25,8 @@ public class DriverWeb {
             criarDriverChrome(url);
         }else if (browser.equalsIgnoreCase("firefox")){
             criarDriverFirefox(url);
-        }else if (browser.equalsIgnoreCase("ie")){
-            criarDriverIE(url);
         }else if (browser.equalsIgnoreCase("edge")){
             criarDriverEdge(url);
-        }else if (browser.equalsIgnoreCase("safari")){
-            criarDriverSafari(url);
         }else{
             criarDriverChrome(url);
         }
@@ -49,25 +45,11 @@ public class DriverWeb {
         driver = new FirefoxDriver();
     }
 
-    public void criarDriverIE(String url) throws Exception {
-        WebDriverManager.iedriver().setup();
-        driver = new InternetExplorerDriver();
-    }
-
     public void criarDriverEdge(String url) throws Exception {
+        System.out.println("O webdriver é do MS Edge Chromium e nao da versao anterior dele!");
         WebDriverManager.edgedriver().setup();
-        //O Driver abaixo e do MS Edge Chromium e nao da versao anterior dele
         EdgeOptions edgeOptions = new EdgeOptions();
         driver = new EdgeDriver(edgeOptions);
-    }
-
-    public void criarDriverSafari(String url) throws Exception {
-        try{
-            SafariOptions options = new SafariOptions();
-            driver = new SafariDriver(options);
-        }catch (Exception e){
-            System.out.println("Não há webdriver do Safari para SO diferente do MacOS!");
-        }
     }
 
     public void fecharDriverWeb(){

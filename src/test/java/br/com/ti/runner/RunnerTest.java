@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         tags = "@LojaVirtual",
 
         //Executa no jUnit exibindo no console os mesmos resultados do cucumber
-        plugin = {"pretty", "html:evidencias/html/evidence-html"},
+        plugin = {"pretty", "html:evidencias/html/evidence.html"},
 
         //Ele nao tenta colocar caracteres coloridos e especiais
         monochrome = true,
