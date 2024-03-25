@@ -74,6 +74,12 @@ public class BasePage {
         this.driver.findElement(by).click();
     }
 
+    public void clicarJS(By by){
+        WebElement element = this.driver.findElement(by);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
     public void esperar(long tempo) throws InterruptedException {
         Thread.sleep(tempo);
     }
