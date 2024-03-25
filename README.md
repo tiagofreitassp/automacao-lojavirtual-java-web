@@ -8,7 +8,7 @@ Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Se
 * Realizar compra online
 
 ## Tecnologias:
-* [Java JDK 8](https://www.oracle.com/br/java/technologies/javase-downloads.html)
+* [Java JDK 8+](https://www.oracle.com/br/java/technologies/javase-downloads.html)
 * [Maven](https://maven.apache.org)
 * [Maven dependency](https://mvnrepository.com)
 * [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager)
