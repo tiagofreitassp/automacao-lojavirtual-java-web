@@ -1,8 +1,10 @@
 # automacao-lojavirtual-java-web
+
 Scripts de automação web em uma Loja Virtual desenvolvido com Java, jUnit e Selenium.
 
 ### Cobertura dos testes:  ###
 
+* Realizar cadastro de um novo usuario
 * Realizar compra online
 
 ## Tecnologias:
