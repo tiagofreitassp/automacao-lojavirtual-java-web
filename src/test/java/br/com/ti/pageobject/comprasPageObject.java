@@ -7,6 +7,7 @@ import io.cucumber.java.Scenario;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -352,6 +353,7 @@ public class comprasPageObject {
 
         page.clicar(By.name(v.btnAddToCart));
         geradorPDF.evidenciaElemento("Clicado no botao Add to cart");
+
         page.esperar(5000);
     }
 

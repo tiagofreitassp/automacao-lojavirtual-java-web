@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/br/com/ti/features/compras.feature",
 
         glue = "br.com.ti.steps",
-        tags = "@ct02",
+        tags = "@LojaVirtual",
 
         //Executa no jUnit exibindo no console os mesmos resultados do cucumber
         plugin = {"pretty", "html:evidencias/html/evidence.html"},

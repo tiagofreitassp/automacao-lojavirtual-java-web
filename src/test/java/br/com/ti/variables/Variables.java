@@ -62,7 +62,7 @@ public class Variables {
     public String btnArSignin = "SubmitLogin";
     public String btnAddToCart = "Submit";
     public String btnProceedToCheckout = "//a[@title='Proceed to checkout']";
-    public String btnContinueShopping = "//span[@title='Continue shopping']";
+    public String btnContinueShopping = "//span[@title='Continue shopping]";
     public String btnSCSProceedToCheckout = "//a[@class='button btn btn-default standard-checkout button-medium']";
     public String btnAdProceedToCheckout = "processAddress";
     public String btnShProceedToCheckout = "processCarrier";
