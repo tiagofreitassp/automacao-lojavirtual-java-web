@@ -123,10 +123,10 @@ public class comprasPageObject {
 
         clicarNoBotaoContinueShopping();
 
-        //Escolher produto Blouse
-        escolherProduto_Blouse();
+        //Escolher produto Printed Dress
+        escolherProduto_PrintedDress();
         escolherTamanho("M");
-        escolherCor_Preta();
+        escolherCor_Bege();
         clicarNoBotaoAddToCart();
 
         clicarNoBotaoContinueShopping();
@@ -134,7 +134,7 @@ public class comprasPageObject {
         //Escolher produto Faded Short Sleeve T-shirts
         escolherProduto_FadedShortSleeveTshirts();
         escolherTamanho("L");
-        escolherCor_Azul();
+        escolherCor_Laranja();
         clicarNoBotaoAddToCart();
 
         clicarNoBotaoProceedToCheckout();
@@ -155,8 +155,7 @@ public class comprasPageObject {
     public void aCompraEFinalizadaComSucesso() throws IOException, InterruptedException, InvalidFormatException {
         page.validarElementoExibido(By.xpath(v.txtOrderConfirmation));
         page.validarElementoExibido(By.xpath(v.txtYourOrderOnMyStoreIsComplete));
-        page.validarTexto(By.xpath(v.txtYourOrderOnMyStoreIsComplete),"Your order on My Store is complete.");
-        geradorPDF.evidenciaElemento("Validar texto 'Your order on My Store is complete.'");
+        geradorPDF.evidenciaElemento("Validar tela 'Your order on My Store is complete.'");
 
         logout();
     }
@@ -298,6 +297,7 @@ public class comprasPageObject {
     }
 
     public void escolherProduto_Blouse() throws InterruptedException, MalformedURLException {
+        page.scroll(-1800);
         page.moverParaElemento(By.xpath(v.txtProduto_Blouse));
 
         geradorPDF.evidenciaElemento("Escolher produto Blouse");
@@ -309,12 +309,26 @@ public class comprasPageObject {
         page.validarElementoExibido(By.xpath("//h1[contains(text(),'Blouse')]"));
     }
 
+    public void escolherProduto_PrintedDress() throws InterruptedException, MalformedURLException {
+        page.scroll(-1800);
+        page.moverParaElemento(By.xpath(v.txtProduto_PrintedDress));
+
+        geradorPDF.evidenciaElemento("Escolher produto Printed Dress");
+
+        page.clicar(By.xpath(v.txtProduto_PrintedDress));
+
+        page.esperar(4000);
+        page.waitFrameAndSwitch(By.xpath(v.iFrame_FadedShortSleeveTshirts));
+        page.validarElementoExibido(By.xpath("//h1[contains(text(),'Printed Dress')]"));
+    }
+
     public void escolherProduto_FadedShortSleeveTshirts() throws InterruptedException, MalformedURLException {
+        page.scroll(-1800);
         page.moverParaElemento(By.xpath(v.txtFadedShortSleeveTshirts));
 
         geradorPDF.evidenciaElemento("Escolher produto Faded Short Sleeve T-shirts ");
 
-        page.clicar(By.xpath(v.txtProduto_Blouse));
+        page.clicar(By.xpath(v.txtFadedShortSleeveTshirts));
 
         page.esperar(4000);
         page.waitFrameAndSwitch(By.xpath(v.iFrame_FadedShortSleeveTshirts));
@@ -340,6 +354,14 @@ public class comprasPageObject {
         page.clicar(By.name("Black"));
     }
 
+    public void escolherCor_Bege() throws MalformedURLException, InterruptedException {
+        page.clicar(By.name("Beige"));
+    }
+
+    public void escolherCor_Rosa() throws MalformedURLException, InterruptedException {
+        page.clicar(By.name("Pink"));
+    }
+
     public void escolherCor_Azul() throws MalformedURLException, InterruptedException {
         page.clicar(By.name("Blue"));
     }
@@ -353,8 +375,7 @@ public class comprasPageObject {
 
         page.clicar(By.name(v.btnAddToCart));
         geradorPDF.evidenciaElemento("Clicado no botao Add to cart");
-
-        page.esperar(5000);
+        page.switchToDefault();
     }
 
     public void validarShoppingCartSummary() throws InterruptedException, MalformedURLException {
@@ -379,9 +400,10 @@ public class comprasPageObject {
     public void escolherPagamento() throws InterruptedException, MalformedURLException {
         page.validarElementoExibido(By.xpath(v.txtPleaseChooseYourPaymentMethod));
         page.scrollDown();
-        page.validarTexto(By.id(v.lblTotalProducts),"$74");
+        page.validarTexto(By.id(v.lblTotalProducts),"$84");
         page.validarTexto(By.id(v.lblTotalShipping),"$7");
-        page.validarTexto(By.id(v.lblTotal),"$81");
+        page.validarTexto(By.id(v.lblTotal),"$91");
+        page.scrollDown();
         geradorPDF.evidenciaElemento("Clicar em Pay By Bank Wire");
         page.clicar(By.xpath(v.btnPayByBankWire));
     }

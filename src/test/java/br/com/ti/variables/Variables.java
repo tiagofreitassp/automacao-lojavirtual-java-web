@@ -42,10 +42,12 @@ public class Variables {
     public String cpEmailAddress = "email_create";
 
     public String txtOrderConfirmation = "//h1[@class='page-heading']";
-    public String txtYourOrderOnMyStoreIsComplete = "//strong[contains(text(),'Your order on My Store is complete.')]";
+    public String txtYourOrderOnMyStoreIsComplete = "//*[contains(text(),'Your order on My Shop is complete.')]";
     public String txtProduto_PrintedChiffonDress = "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[7]/div[1]/div[1]/div[1]/a[1]/img[1]";
-    public String txtProduto_Blouse =  "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[2]/div[1]/div[1]/div[1]/a[1]/img[1]";
-    public String txtFadedShortSleeveTshirts = "//h1[contains(text(),'Faded Short Sleeve T-shirts')]";
+    public String txtProduto_Blouse =  "/html/body/div/div[2]/div/div[3]/div[2]/ul/li[2]/div/div[1]/div/a[1]";
+    public String txtProduto_PrintedDress = "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[4]/div[1]/div[1]/div[1]/a[1]/img[1]";
+    public String txtFadedShortSleeveTshirts = "//body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[1]";
+    public String txtProduto_PrintedSummerDress = "/body/div[@id='page']/div[2]/div[1]/div[3]/div[2]/ul[1]/li[5]/div[1]/div[1]/div[1]/a[1]/img[1]";
     public String txtPrintedChiffonDress = "//h1[contains(text(),'Printed Chiffon Dress')]";
     public String txtOrderSummary = "//h1[@class='page-heading']";
     public String txtBankWirePayment = "//h3[@class='page-subheading']";
@@ -61,13 +63,13 @@ public class Variables {
     public String btnRegister = "//button[@id='submitAccount']";
     public String btnArSignin = "SubmitLogin";
     public String btnAddToCart = "Submit";
-    public String btnProceedToCheckout = "//a[@title='Proceed to checkout']";
-    public String btnContinueShopping = "//span[@title='Continue shopping]";
+    public String btnProceedToCheckout = "//*[@title='Proceed to checkout']";
+    public String btnContinueShopping = "//*[@title='Continue shopping']";
     public String btnSCSProceedToCheckout = "//a[@class='button btn btn-default standard-checkout button-medium']";
     public String btnAdProceedToCheckout = "processAddress";
     public String btnShProceedToCheckout = "processCarrier";
     public String btnPayByBankWire = "//div[@class='paiement_block']//div[1]//div[1]//p[1]";
-    public String btnIconfirmMyOrder = "//button[@class='button btn btn-default button-medium']";
+    public String btnIconfirmMyOrder = "//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]/span[1]";
 
     public String rdTitleMr = "id_gender1";
     public String rdTitleMrs = "id_gender2";

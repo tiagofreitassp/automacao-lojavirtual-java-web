@@ -132,8 +132,14 @@ public class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    protected WebElement waitAndFindElement(By by) {
+    public WebElement waitAndFindElement(By by) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public WebElement elementToBeClickable(By by) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
     public void limparCampo(By by) throws MalformedURLException, InterruptedException {
@@ -164,6 +170,7 @@ public class BasePage {
     public void scroll(long t) throws InterruptedException {
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,"+t+")");
+        esperar(2000);
     }
 
     public void scrollDownClick(By by) throws MalformedURLException, InterruptedException {
