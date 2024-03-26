@@ -45,7 +45,9 @@ Recomendado utilizar o Intellij Idea, mas pode usar o Eclipse IDE ou Visual Stud
 
 ###  - Massas
 
-*Descricao: Antes de executar nao esqueca de trocar as massas por uma adequada. Faca isso para o CT01. E ara o CT02 nao ha 
+*Descricao: 
+
+Antes de executar nao esqueca de trocar as massas por uma adequada. Faca isso para o CT01. E para o CT02 nao ha 
 problema em usar a massa disponivel na feature desde que verifique antes se o site nao apagou do banco de dados.
 
 ###  - Evidencias
