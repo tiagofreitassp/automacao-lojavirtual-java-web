@@ -1,6 +1,5 @@
 package br.com.ti.base;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.Document;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -14,8 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -33,7 +30,7 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void clicarRadioButton(int posicao) throws InterruptedException {
+    public void clicarRadioButton(int posicao) throws Exception {
         esperar(1600);
         //Monta uma lista com todos os elementos de nome radio
         List<WebElement> radio = this.driver.findElements(By.name("radio"));
@@ -41,7 +38,7 @@ public class BasePage {
         radio.get(posicao).click();
     }
 
-    public void clicarCheckBox(int posicao) throws InterruptedException {
+    public void clicarCheckBox(int posicao) throws Exception {
         esperar(1600);
         //Monta uma lista com todos os elementos de nome checkbox
         List<WebElement> checkbox = this.driver.findElements(By.cssSelector("input[type='checkbox']"));
@@ -49,7 +46,7 @@ public class BasePage {
         checkbox.get(posicao).click();
     }
 
-    public void clicarViewBox(int posicao, By by) throws InterruptedException {
+    public void clicarViewBox(int posicao, By by) throws Exception {
         esperar(1000);
         //Monta uma lista com todos os elementos de nome svg
         List<WebElement> svg = this.driver.findElements(by);
@@ -57,18 +54,18 @@ public class BasePage {
         svg.get(posicao).click();
     }
 
-    public void clicarSemEsperar(By by) throws MalformedURLException, InterruptedException {
+    public void clicarSemEsperar(By by) throws Exception {
         aguardarElemento(by);
         this.driver.findElement(by).click();
     }
 
-    public void escrever(By by, String texto) throws MalformedURLException, InterruptedException {
+    public void escrever(By by, String texto) throws Exception {
         aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).sendKeys(texto);
     }
 
-    public void clicar(By by) throws MalformedURLException, InterruptedException {
+    public void clicar(By by) throws Exception {
         aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).click();
@@ -80,23 +77,23 @@ public class BasePage {
         js.executeScript("arguments[0].click();", element);
     }
 
-    public void esperar(long tempo) throws InterruptedException {
+    public void esperar(long tempo) throws Exception {
         Thread.sleep(tempo);
     }
 
-    public void validarElementoExibido(By by) throws InterruptedException {
+    public void validarElementoExibido(By by) throws Exception {
         aguardarElemento(by);
         selecionarElemento(by);
         this.driver.findElement(by).isDisplayed();
     }
 
-    public void moverParaElemento(By by) throws InterruptedException {
+    public void moverParaElemento(By by) throws Exception {
         aguardarElemento(by);
         WebElement elemento = this.driver.findElement(by);
         ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", elemento);
     }
 
-    public void validarTexto(By by, String texto) throws MalformedURLException, InterruptedException {
+    public void validarTexto(By by, String texto) throws Exception {
         aguardarElemento(by);
         selecionarElemento(by);
         Assert.assertEquals(texto, obterTexto(by));
@@ -106,29 +103,28 @@ public class BasePage {
         wait.until(ExpectedConditions.jsReturnsValue("return document.readyState=='complete'"));
     }
 
-    public WebDriver waitFrameAndSwitch(By frame) throws InterruptedException {
+    public WebDriver waitFrameAndSwitch(By frame) throws Exception {
         aguardarElemento(frame);
         return wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));
     }
 
-    public void switchToFrame(By by) throws InterruptedException {
+    public void switchToFrame(By by) throws Exception {
         aguardarElemento(by);
         WebElement el = this.driver.findElement(by);
         this.driver.switchTo().frame(el);
     }
 
-    public void switchToDefault() throws InterruptedException {
+    public void switchToDefault() throws Exception {
         this.driver.switchTo().defaultContent();
         this.esperar(2000);
     }
 
-    public String obterTexto(By by) throws MalformedURLException, InterruptedException {
+    public String obterTexto(By by) throws Exception {
         aguardarElemento(by);
         return this.driver.findElement(by).getText();
     }
 
-    public void aguardarElemento(By by) throws InterruptedException {
-        esperar(2000);
+    public void aguardarElemento(By by) throws Exception {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
@@ -142,7 +138,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    public void limparCampo(By by) throws MalformedURLException, InterruptedException {
+    public void limparCampo(By by) throws Exception {
         aguardarElemento(by);
         driver.findElement(by).sendKeys(Keys.CONTROL+"a");
         driver.findElement(by).sendKeys(Keys.DELETE);
@@ -153,27 +149,27 @@ public class BasePage {
         return js.executeScript(cmd, param);
     }
 
-    public void scrollUp() throws InterruptedException {
+    public void scrollUp() throws Exception {
         esperar(1000);
         JavascriptExecutor jse1 = (JavascriptExecutor)driver;
         jse1.executeScript("window.scrollBy(0,-200)");
         esperar(1000);
     }
 
-    public void scrollDown() throws InterruptedException {
+    public void scrollDown() throws Exception {
         esperar(1000);
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,200)");
         esperar(1000);
     }
 
-    public void scroll(long t) throws InterruptedException {
+    public void scroll(long t) throws Exception {
         JavascriptExecutor jse2 = (JavascriptExecutor)driver;
         jse2.executeScript("window.scrollBy(0,"+t+")");
         esperar(2000);
     }
 
-    public void scrollDownClick(By by) throws MalformedURLException, InterruptedException {
+    public void scrollDownClick(By by) throws Exception {
         isPresent = driver.findElements(by).size() > 0;
         System.out.println("SIZE FORA DO WHILE:" + isPresent);
         while (isPresent == false) {
@@ -214,7 +210,7 @@ public class BasePage {
 
     //////////////////////////////////// Metodos para geracao de evidencias ///////////////////////////////
 
-    public void criarPastaEvidencia(String nPasta) throws InterruptedException {
+    public void criarPastaEvidencia(String nPasta) throws Exception {
         Date dataAtual = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
         nomePasta = sdf.format(dataAtual);
@@ -223,7 +219,7 @@ public class BasePage {
         pastaEvidencias.mkdir();
     }
 
-    public void gerarScreenshot(String nomeImagem) throws InterruptedException {
+    public void gerarScreenshot(String nomeImagem) throws Exception {
         try {
             TakesScreenshot ts = (TakesScreenshot)driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
@@ -236,7 +232,7 @@ public class BasePage {
         esperar(1000);
     }
 
-    public void gerarEvidenciaNoWord(String cenario, String id, String titulo) throws IOException, InvalidFormatException, IOException {
+    public void gerarEvidenciaNoWord(String cenario, String id, String titulo) throws Exception {
         XWPFDocument doc = new XWPFDocument(new FileInputStream(new File("Template.docx")));
         XWPFParagraph par = doc.createParagraph();
         XWPFRun run1 = par.createRun();

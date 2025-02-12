@@ -22,3 +22,22 @@ Funcionalidade: Realizar cadastro e compra com sucesso
     Exemplos:
       | email                  | senha     |
       | teste.email.4@mail.com | abc@12345 |
+
+  @ct03
+  Esquema do Cenario: Não autenticar com email incorreto
+    Dado que efetuei a autenticacao de usuario com "<email>" incorreto e "<senha>" valida
+    Entao uma mensagem de erro e exibida "<erro1>" e "<erro2>"
+
+    Exemplos:
+      | email                 | senha     | erro1            | erro2                  |
+      | email.user@@apple.com | abc@12345 | There is 1 error | Invalid email address. |
+
+  @ct04
+  Esquema do Cenario: Não autenticar com senha invalida
+    Dado que efetuei a autenticacao de usuario com "<email>" valida e "<senha>" invalida
+    Entao uma mensagem de erro e exibida "<erro1>" e "<erro2>"
+
+    Exemplos:
+      | email                  | senha     | erro1            | erro2                  |
+      | teste.email.4@mail.com | S3NH@     | There is 1 error | Authentication failed. |
+      | teste.email.4@mail.com | 123       | There is 1 error | Invalid password.      |
