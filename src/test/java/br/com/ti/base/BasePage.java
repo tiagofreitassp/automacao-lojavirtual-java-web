@@ -125,6 +125,7 @@ public class BasePage {
     }
 
     public void aguardarElemento(By by) throws Exception {
+        this.esperar(2000);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 

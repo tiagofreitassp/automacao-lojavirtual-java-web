@@ -12,7 +12,6 @@ Funcionalidade: Realizar cadastro e compra com sucesso
       | email                  | titulo | primeiroNome | ultimoNome | senha     | companhia | endereco             | cidade | cep   | telefone   | celular     | email2               |
       | teste.email.7@mail.com | mr     | Chapolin     | Colorado   | abc@12345 | Acme Ltd  | Rua Antonio Agu, 123 | Osasco | 10075 | 1145671234 | 11999999999 | teste.alias@mail.com |
 
-
  @ct02
   Esquema do Cenario: Realizar uma compra com sucesso
     Dado que efetuei a autenticacao de usuario com "<email>" e "<senha>"
