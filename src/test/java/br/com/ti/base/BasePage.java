@@ -1,11 +1,11 @@
 package br.com.ti.base;
 
+import org.apache.poi.common.usermodel.PictureType;
+import org.junit.jupiter.api.Assertions;
 import org.apache.poi.util.Units;
-import org.apache.poi.xwpf.usermodel.Document;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,7 +96,7 @@ public class BasePage {
     public void validarTexto(By by, String texto) throws Exception {
         aguardarElemento(by);
         selecionarElemento(by);
-        Assert.assertEquals(texto, obterTexto(by));
+        Assertions.assertEquals(texto, obterTexto(by));
     }
 
     public void waitUntilPageLoadComplete() {
@@ -266,7 +266,7 @@ public class BasePage {
             run3.setColor("595959");
             run3.setFontFamily("Calibri Light");
             run3.addBreak();
-            run3.addPicture(is, Document.PICTURE_TYPE_PNG, imagem, Units.toEMU(513), Units.toEMU(313));
+            run3.addPicture(is, PictureType.PNG, imagem, Units.toEMU(513), Units.toEMU(313));
             run3.addBreak();
             is.close();
 
