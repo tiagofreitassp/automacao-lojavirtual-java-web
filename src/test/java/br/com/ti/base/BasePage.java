@@ -71,7 +71,7 @@ public class BasePage {
         this.driver.findElement(by).click();
     }
 
-    public void clicarJS(By by){
+    public void clicarJS(By by) throws Exception {
         WebElement element = this.driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
