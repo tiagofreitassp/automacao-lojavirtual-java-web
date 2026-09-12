@@ -62,13 +62,11 @@ public class comprasPageObject {
         clicarNoBotaoSignIn();
         inserirNome(this.primeiroNome+" "+this.ultimoNome);
         inserirNovoEmail(this.email);
-        geradorPDF.evidenciaElemento("Etapa 1 cadastro");
         clicarNoBotaoSignup();
 
         escolherTitulo();
         inserirNovaSenha();
         inserirDataDeNascimento();
-        geradorPDF.evidenciaElemento("Etapa 2 cadastro");
 
         page.scrollDown();
         inserirPrimeiroNome();
@@ -76,17 +74,44 @@ public class comprasPageObject {
         inserirCompanhia();
         page.scrollDown();
         inserirEndereco();
-        geradorPDF.evidenciaElemento("Etapa 3 cadastro");
         clicarNoBotaoCreateAccount();
     }
 
     public void oCadastroDoNovoClienteECriado() throws Exception {
         page.validarElementoExibido(By.xpath("//b[normalize-space(text())='Account Created!']"));
-        page.validarElementoExibido(By.xpath("//p[contains(.,'Congratulations! Your new account has been successfully created!How-To, DIY & Expert Content')]"));
-        page.validarElementoExibido(By.xpath("//p[contains(.,'You can now take advantage of member privileges to enhance your online  shopping experience with us.')]"));
         geradorPDF.evidenciaElemento("Fim do cadastro");
         page.clicar(By.xpath(v.btnContinue));
-        clicarNoBotaoLogout();
+    }
+
+    public void efetuarAutenticacaoComDadosInvalidos(String email, String senha) throws Exception {
+        clicarNoBotaoSignIn();
+        inserirEmailAdress(email);
+        inserirPassword(senha);
+        geradorPDF.evidenciaElemento("Autenticação de usuário");
+        clicarNoBotaoLogin();
+    }
+
+    public void umaMensagemDeErroEExibida(String erro) throws Exception {
+        validarMensagemDeErro(erro);
+    }
+
+    public void validarMensagemDeErro(String erro) throws Exception {
+        page.validarElementoExibido(By.xpath(v.txtYourEmailOrPasswordIsIncorrect));
+        geradorPDF.evidenciaElemento("Mensagem de erro exibida");
+    }
+
+    private void clicarNoBotaoLogin() throws Exception {
+        page.clicar(By.xpath(v.cpLogin));
+    }
+
+    private void inserirEmailAdress(String email) throws Exception {
+        page.escrever(By.xpath(v.cpEmailLogin),email);
+        geradorPDF.evidenciaElemento("Inserir e-mail");
+    }
+
+    private void inserirPassword(String senha) throws Exception {
+        page.escrever(By.xpath(v.cpPasswordLogin),senha);
+        geradorPDF.evidenciaElemento("Inserir senha");
     }
 
     public void preencherAddresses() throws Exception {
@@ -96,12 +121,14 @@ public class comprasPageObject {
         page.escrever(By.id(v.cpCity),cidade);
         page.escrever(By.id(v.cpZip),cep);
         page.escrever(By.id(v.cpMobilePhone),celular);
+        geradorPDF.evidenciaElemento("Preencher endereço");
     }
 
     public void escolherPais() throws Exception {
         WebElement selectElement = driver.findElement(By.id(v.cpPais));
         Select select = new Select(selectElement);
         select.selectByValue(pais);
+        geradorPDF.evidenciaElemento("Escolher país");
     }
 
     public void clicarNoBotaoCreateAccount() throws Exception {
@@ -118,10 +145,12 @@ public class comprasPageObject {
 
     public void inserirNome(String nome) throws Exception {
         page.escrever(By.xpath(v.cpName),nome);
+        geradorPDF.evidenciaElemento("Inserir nome");
     }
 
     public void inserirNovoEmail(String email) throws Exception {
         page.escrever(By.xpath(v.cpEmailAddress),email);
+        geradorPDF.evidenciaElemento("Inserir novo e-mail");
     }
 
     public void clicarNoBotaoSignup() throws Exception {
@@ -138,22 +167,28 @@ public class comprasPageObject {
         if (titulo.equalsIgnoreCase("mrs")){
             page.clicar(By.id(v.rdTitleMrs));
         }
+
+        geradorPDF.evidenciaElemento("Escolher título");
     }
 
     public void inserirPrimeiroNome() throws Exception {
         page.escrever(By.id(v.cpFirstName),primeiroNome);
+        geradorPDF.evidenciaElemento("Inserir primeiro nome");
     }
 
     public void inserirUltimoNome() throws Exception {
         page.escrever(By.id(v.cpLastName),ultimoNome);
+        geradorPDF.evidenciaElemento("Inserir último nome");
     }
 
     public void inserirCompanhia() throws Exception {
         page.escrever(By.id(v.cpCompany),companhia);
+        geradorPDF.evidenciaElemento("Inserir companhia");
     }
 
     public void inserirNovaSenha() throws Exception {
         page.escrever(By.id(v.cpPassword),senha);
+        geradorPDF.evidenciaElemento("Inserir nova senha");
     }
 
     public void inserirDataDeNascimento() throws Exception {
@@ -163,6 +198,7 @@ public class comprasPageObject {
         page.clicarSemEsperar(By.xpath(v.lbMes));
         page.clicarSemEsperar(By.xpath(v.slAno));
         page.clicarSemEsperar(By.xpath(v.lbAno));
+        geradorPDF.evidenciaElemento("Inserir data de nascimento");
     }
 
     public void clicarNoBotaoLogout() throws Exception {

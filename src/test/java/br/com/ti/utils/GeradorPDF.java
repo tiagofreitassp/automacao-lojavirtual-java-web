@@ -18,6 +18,7 @@ public class GeradorPDF{
     private Scenario cenario;
     private String arqEvidencia;
     private WebDriver driver;
+    private String passo;
 
     public GeradorPDF(WebDriver driver,Scenario cenario, String nomeTeste){
         this.driver=driver;
@@ -145,16 +146,19 @@ public class GeradorPDF{
         if (cenario.getStatus().toString().equals("FAILED")) {
             cor = BaseColor.RED;
             resultado = "__FAILED";
+            addFormatedText("STATUS DO CENARIO: " + cenario.getStatus(), FontFactory.TIMES_BOLDITALIC, 16f, 1, cor);
+            addException(new Exception(), this.passo);
         } else {
             resultado = "__PASSED";
+            addFormatedText("STATUS DO CENARIO: " + cenario.getStatus(), FontFactory.TIMES_BOLDITALIC, 16f, 1, cor);
         }
-        addFormatedText("STATUS DO CENARIO: " + cenario.getStatus(), FontFactory.TIMES_BOLDITALIC, 16f, 1, cor);
         document.close();
         novoNome = arqEvidencia.replace(".pdf", resultado + ".pdf");
         return new File(arqEvidencia).renameTo(new File(novoNome));
     }
 
     public void evidenciaElemento(String passo) {
+        this.passo = passo;
         print(passo);
     }
 }

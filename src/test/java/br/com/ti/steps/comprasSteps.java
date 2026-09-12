@@ -17,7 +17,7 @@ public class comprasSteps extends DriverWeb {
     public GeradorPDF geradorPDF;
     private Scenario cenario;
     private String nomeDoCenario;
-    private final String navegador = NavegadoresEnums.chrome.getValue();
+    private final String navegador = NavegadoresEnums.edge.getValue();
 
     @Before("@LojaVirtual")
     public void setUp(Scenario cenario) throws Exception {
@@ -41,5 +41,22 @@ public class comprasSteps extends DriverWeb {
     @Entao("o cadastro do novo cliente e criado")
     public void oCadastroDoNovoClienteECriado() throws Exception {
         comprasPageObject.oCadastroDoNovoClienteECriado();
+    }
+
+    @Dado("que efetuei a autenticacao de usuario com {string} incorreto e {string} valida")
+    public void queEfetueiAAutenticacaoDeUsuarioComIncorretoEValida(String email, String senha) throws Exception {
+        comprasPageObject = new comprasPageObject(getCurrentRunningDriver(),this.cenario,this.nomeDoCenario);
+        comprasPageObject.efetuarAutenticacaoComDadosInvalidos(email,senha);
+    }
+
+    @Entao("uma mensagem de erro e exibida {string}")
+    public void umaMensagemDeErroEExibida(String erro) throws Exception {
+        comprasPageObject.umaMensagemDeErroEExibida(erro);
+    }
+
+    @Dado("que efetuei a autenticacao de usuario com {string} valida e {string} invalida")
+    public void queEfetueiAAutenticacaoDeUsuarioComValidaEInvalida(String email, String senha) throws Exception {
+        comprasPageObject = new comprasPageObject(getCurrentRunningDriver(),this.cenario,this.nomeDoCenario);
+        comprasPageObject.efetuarAutenticacaoComDadosInvalidos(email,senha);
     }
 }

@@ -13,9 +13,9 @@ public class Variables {
     public String slDia = "//select[@id='days']";
 
     public String cpName = "//input[@data-qa='signup-name']";
-    public String cpPassword = "passwd";
+    public String cpPassword = "password";
     public String cpFirstName = "first_name";
-    public String cpLastName = "lastname";
+    public String cpLastName = "last_name";
     public String cpCompany = "company";
     public String cpAddress = "address1";
     public String cpPais = "country";
@@ -24,6 +24,9 @@ public class Variables {
     public String cpZip = "zipcode";
     public String cpMobilePhone = "mobile_number";
     public String cpEmailAddress = "//input[@data-qa='signup-email']";
+    public String cpEmailLogin = "//input[@data-qa='login-email']";
+    public String cpPasswordLogin = "//input[@data-qa='login-password']";
+    public String cpLogin = "//button[@data-qa='login-button']";
 
     public String btnLogout = "//a[normalize-space(text())='Logout']";
     public String btnContinue = "//a[@data-qa='continue-button']";
@@ -33,4 +36,6 @@ public class Variables {
 
     public String rdTitleMr = "id_gender1";
     public String rdTitleMrs = "id_gender2";
+
+    public String txtYourEmailOrPasswordIsIncorrect = "//p[normalize-space(text())='Your email or password is incorrect!']";
 }
